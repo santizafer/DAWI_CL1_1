@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcular si es año Bisiesto</title>
+    <link th:href="@{/styles/bootstrap/bootstrap.css}"
+          rel="stylesheet">
+    <script th:src="@{/scripts/bootstrap/bootstrap.bundle.js}"
+            type="text/javascript"></script>
+</head>
+<body>
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-header">
+            <h2>Calcular si es año Bisiesto</h2>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/validarbisiesto}" method="post" th:object="${aniobisiestomodel}">
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="txtanio" placeholder="Ingrese año" th:field="*{anio}">
+                    <label for="txtanio">Ingrese año</label>
+                </div>
+                <button type="submit" class="btn btn-primary">CALCULAR</button>
+                <hr />
+                <div th:if="${verresultado}" class="alert alert-primary" role="alert">
+                    <span th:text="${resultado} ?: '' "></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
